@@ -24,7 +24,7 @@
 <table>
   <tr>
     <td><img src="screenshots/01-frontend-light.png" alt="Frontend — light mode" /></td>
-    <td><img src="screenshots/02-frontend-dark.png" alt="Frontend — dark mode" /></td>
+    <td><img src="screenshots/Screenshot 2026-07-12 162556.png" alt="Frontend — dark mode" /></td>
     <td><img src="screenshots/07-admin-edit-page.png" alt="Full-screen Markdown editor" /></td>
   </tr>
   <tr>
