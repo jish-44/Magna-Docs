@@ -129,7 +129,7 @@ The frontend is pure Blade + inline CSS. There is no JavaScript framework shippe
 
 <p align="center">
   <img src="screenshots/01-frontend-light.png" alt="Frontend light mode" width="49%" />
-  <img src="screenshots/02-frontend-dark.png" alt="Frontend dark mode" width="49%" />
+  <img src="screenshots/Screenshot 2026-07-12 162556.png" alt="Frontend dark mode" width="49%" />
 </p>
 
 ### Featured Image
