@@ -1,0 +1,14 @@
+{
+    "name": "magna/docs",
+    "description": "Documentation page management plugin for Magna CMS.",
+    "type": "magna-plugin",
+    "require": {
+        "php": "^8.3",
+        "league/commonmark": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Magna\\Docs\\": "src/"
+        }
+    }
+}

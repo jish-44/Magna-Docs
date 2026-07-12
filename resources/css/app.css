@@ -1,0 +1,9 @@
+/*
+ * Source for the docs front-end stylesheet (Tailwind v3, to match the classes
+ * authored against the Play CDN). The COMPILED output is committed at
+ * ../../public/docs.css and served by the plugin, so installing the plugin needs
+ * no build step. See tailwind.config.js for the rebuild command.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
