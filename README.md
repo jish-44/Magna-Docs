@@ -90,6 +90,7 @@ Magna Docs is the right tool for any team that wants documentation without a sep
 - Dark mode / light mode toggle (persists per session)
 - Automatic SEO — Open Graph, Twitter Cards, JSON-LD, Sitemap
 - REST API for headless or mobile consumption
+- Multi-language / localization — per-page translations with locale switching
 - Role-based editor permissions
 - Shared Magna media library
 - Custom domain, logo, favicon and site name
@@ -119,6 +120,7 @@ Magna Docs is the right tool for any team that wants documentation without a sep
 | Automatic breadcrumbs | ✅ | ❌ | ⚠️ | ⚠️ | ⚠️ | ✅ |
 | Reading time | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Prev / Next navigation | ✅ | ✅ | ✅ | ✅ | ⚠️ | ✅ |
+| Multi-language translations | ✅ | ✅ paid | ⚠️ | ⚠️ | ⚠️ | ❌ |
 | Mobile responsive | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Open source | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
 
@@ -548,6 +550,9 @@ Yes. Collections and nested pages make it easy to structure any type of document
 **Is it SEO friendly?**
 Yes. Every page automatically gets meta tags, Open Graph, Twitter Cards, JSON-LD structured data, canonical URLs, and a sitemap.
 
+**Does it support multiple languages?**
+Yes. Magna Docs ships with a built-in translation system — each page can have a translated `title` and `content` per locale, stored in a dedicated `docs_page_translations` table. Switch locale to serve documentation in any language.
+
 **Can I serve docs on my own domain (e.g. docs.myapp.com)?**
 Yes. Configure a custom domain in **Magna Docs → Settings**.
 
@@ -568,7 +573,6 @@ Planned for future releases:
 
 - [ ] Global full-text search (Algolia DocSearch / built-in)
 - [ ] Versioned documentation (e.g. v1, v2)
-- [ ] Multi-language / localization support
 - [ ] Import from GitHub Markdown files
 - [ ] Export to PDF
 - [ ] Export to ZIP / static HTML
