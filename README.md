@@ -1,226 +1,422 @@
 <p align="center">
-  <img src="screenshots/magna-logo.svg" alt="Magna CMS" width="80">
+  <img src="screenshots/magna-logo.svg" alt="Magna Docs" width="90">
 </p>
 
 <h1 align="center">Magna Docs</h1>
 
 <p align="center">
-  <strong>A beautiful, full-featured documentation plugin for <a href="https://github.com/jish-44/magna-cms">Magna CMS</a>.</strong><br>
-  Write, organize, and publish developer documentation right inside your Laravel admin panel.<br>
-  No separate toolchain. No rebuild step. No Node.js required.
+  <strong>The documentation plugin built for Laravel — live publishing, zero build step, zero Node.js.</strong><br>
+  Write, organise, and publish developer documentation directly inside your <a href="https://github.com/jish-44/Magna">Magna CMS</a> admin panel.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-v1.0-6366f1" alt="Version v1.0">
-  <img src="https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white" alt="PHP 8.3+">
-  <img src="https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white" alt="Laravel 13">
-  <img src="https://img.shields.io/badge/Filament-5-f59e0b?logo=laravel&logoColor=white" alt="Filament 5">
-  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT">
+  <img src="https://img.shields.io/badge/version-v1.0-6366f1?style=for-the-badge" alt="Version v1.0">
+  <img src="https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.3+">
+  <img src="https://img.shields.io/badge/Laravel-13-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 13">
+  <img src="https://img.shields.io/badge/Filament-5-f59e0b?style=for-the-badge" alt="Filament 5">
+  <img src="https://img.shields.io/badge/license-MIT-22c55e?style=for-the-badge" alt="License: MIT">
 </p>
 
 ---
 
-<!-- Screenshots — horizontal gallery (scroll to see all) -->
 <table>
   <tr>
-    <td><img src="screenshots/01-frontend-light.png" alt="Frontend — light mode" /></td>
-    <td><img src="screenshots/Screenshot 2026-07-12 162556.png" alt="Frontend — dark mode" /></td>
-    <td><img src="screenshots/07-admin-edit-page.png" alt="Full-screen Markdown editor" /></td>
+    <td><img src="screenshots/01-frontend-light.png" alt="Magna Docs — frontend light mode" /></td>
+    <td><img src="screenshots/Screenshot 2026-07-12 162556.png" alt="Magna Docs — frontend dark mode" /></td>
+    <td><img src="screenshots/07-admin-edit-page.png" alt="Magna Docs — full-screen Markdown editor" /></td>
   </tr>
   <tr>
-    <td align="center"><sub>Frontend — light mode</sub></td>
-    <td align="center"><sub>Frontend — dark mode</sub></td>
+    <td align="center"><sub>Public docs — light mode</sub></td>
+    <td align="center"><sub>Public docs — dark mode</sub></td>
     <td align="center"><sub>Full-screen Markdown editor</sub></td>
   </tr>
   <tr>
-    <td><img src="screenshots/05-admin-pages-list.png" alt="Admin — Doc Pages list" /></td>
-    <td><img src="screenshots/06-admin-collections.png" alt="Admin — Collections" /></td>
-    <td><img src="screenshots/10-frontend-mobile.png" alt="Mobile view" /></td>
+    <td><img src="screenshots/05-admin-pages-list.png" alt="Magna Docs — admin pages list" /></td>
+    <td><img src="screenshots/06-admin-collections.png" alt="Magna Docs — collections admin" /></td>
+    <td><img src="screenshots/10-frontend-mobile.png" alt="Magna Docs — mobile view" /></td>
   </tr>
   <tr>
     <td align="center"><sub>Admin — Doc Pages list</sub></td>
     <td align="center"><sub>Admin — Collections</sub></td>
-    <td align="center"><sub>Mobile view</sub></td>
+    <td align="center"><sub>Mobile responsive view</sub></td>
   </tr>
 </table>
 
 ---
 
-## Why Magna Docs instead of VitePress / Docusaurus / GitBook?
+## Why Magna Docs?
 
-| Feature | Magna Docs | VitePress / Docusaurus | GitBook / Notion |
-|---|---|---|---|
-| Runs inside your existing Laravel app | ✅ | ❌ Separate process/deploy | ❌ External SaaS |
-| Edits are live instantly (no rebuild) | ✅ | ❌ Must re-run `vite build` | ✅ |
-| Fully server-rendered HTML (no React/Vue in browser) | ✅ | ❌ JS framework required | ❌ |
-| SEO-ready out of the box | ✅ | ✅ | ⚠️ Limited on free tier |
-| Sitemap.xml auto-generated | ✅ | ✅ (with plugin) | ❌ |
-| Role-based editor permissions | ✅ | ❌ | ✅ (paid) |
-| Nestable pages + collections | ✅ | ✅ | ✅ |
-| Dark mode | ✅ | ✅ | ✅ |
-| Full-screen distraction-free editor | ✅ | ❌ | ✅ |
-| Self-hosted, open-source | ✅ | ✅ | ❌ |
-| Media library integration | ✅ | ❌ | ❌ |
-| REST API for headless consumption | ✅ | ❌ | ✅ (paid) |
-| Zero build step / no Node.js | ✅ | ❌ Requires Node | ❌ |
+Most documentation platforms force you to maintain a completely separate website alongside your application.
 
-The core difference: static-site generators compile at build time, so every content edit requires a rebuild and redeploy. Magna Docs renders directly from the database on each request — so saving a draft in the admin is live on the next page load.
+Whether you use **GitBook**, **VitePress**, **Docusaurus**, **MkDocs**, or **Docsify**, you end up managing:
+
+- a separate repository
+- Node.js dependencies and build pipelines
+- separate deployment workflows
+- a synchronization problem between your app and its docs
+
+Magna Docs takes a different approach. It lives **inside your Laravel application** as a native plugin. Every page is stored in your database, rendered with Blade, cached automatically, and live on the next page refresh the instant you hit Publish.
+
+There is nothing extra to build, deploy, or maintain.
+
+---
+
+## Built For
+
+Magna Docs is the right tool for any team that wants documentation without a separate platform:
+
+- 📚 Software & open-source project documentation
+- 🔌 API references and developer portals
+- 📖 Product manuals and user guides
+- 🏢 Internal company wikis and SOPs
+- 🎓 Training and onboarding documentation
+- ❓ Customer help centres and knowledge bases
+- 📒 SaaS platform documentation
+- 📗 Installation guides and technical references
+
+---
+
+## ⭐ Key Features
+
+- Full-screen distraction-free Markdown editor with toolbar
+- Live publishing — edit, click Publish, refresh. Done.
+- Collections and unlimited nested page hierarchy
+- Automatic sidebar generation from your page tree
+- Automatic Table of Contents from `h2` / `h3` headings
+- Reading time estimation and "last updated" display
+- Previous / Next page navigation
+- Breadcrumb navigation with structured data
+- Featured images from upload or media library
+- Dark mode / light mode toggle (persists per session)
+- Automatic SEO — Open Graph, Twitter Cards, JSON-LD, Sitemap
+- REST API for headless or mobile consumption
+- Role-based editor permissions
+- Shared Magna media library
+- Custom domain, logo, favicon and site name
+- Server-side rendering — no React, no Vue in the browser
+- Automatic per-page HTML caching with instant invalidation
+- Fully self-hosted, MIT licensed
+
+---
+
+## Feature Comparison
+
+| Feature | **Magna Docs** | GitBook | Docusaurus | VitePress | MkDocs | BookStack |
+|---------|:-----------:|:-------:|:----------:|:---------:|:------:|:---------:|
+| Self-hosted | ✅ | ⚠️ paid | ✅ | ✅ | ✅ | ✅ |
+| Laravel / PHP native | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Filament admin integration | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Live publishing (no rebuild) | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
+| Requires Node.js | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ |
+| Database-driven | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |
+| Full-screen writing mode | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Markdown support | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| JSON-LD structured data | ✅ | ❌ | ⚠️ | ⚠️ | ❌ | ❌ |
+| Automatic XML sitemap | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ | ❌ |
+| REST API | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Role-based permissions | ✅ | ✅ paid | ❌ | ❌ | ❌ | ✅ |
+| Shared media library | ✅ | ❌ | ❌ | ❌ | ❌ | ⚠️ |
+| Automatic breadcrumbs | ✅ | ❌ | ⚠️ | ⚠️ | ⚠️ | ✅ |
+| Reading time | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Prev / Next navigation | ✅ | ✅ | ✅ | ✅ | ⚠️ | ✅ |
+| Mobile responsive | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Open source | ✅ | ❌ | ✅ | ✅ | ✅ | ✅ |
 
 ---
 
 ## Features
 
-### Full-screen Markdown Editor
+### Full-Screen Markdown Editor
 
 <p align="center">
-  <img src="screenshots/07-admin-edit-page.png" alt="Full-screen editor" width="80%" />
+  <img src="screenshots/07-admin-edit-page.png" alt="Magna Docs full-screen Markdown editor" width="80%" />
 </p>
 
-- Distraction-free overlay editor covers the entire screen — no Filament chrome visible while writing.
-- **Markdown** with rich toolbar: bold, italic, strikethrough, links, headings, bullet/ordered lists, blockquotes, code blocks, tables, and file attachments.
-- **Dark / light mode toggle** — persists across saves and page reloads.
-- **Auto-save-aware workflow**: Save Draft silently saves without redirecting; Update sets the status to published and shows a confirmation toast.
-- **Auto-slug generation**: slug is derived from the title while typing; you can override it manually.
+The editor takes over the entire screen — Filament chrome disappears, leaving nothing but your content.
+
+- Rich toolbar: bold, italic, strikethrough, links, headings, lists, blockquotes, code blocks, tables, file attachments
+- **Dark / light mode toggle** that persists between sessions
+- **Save Draft** saves silently without redirecting; **Publish / Update** goes live immediately
+- Slug auto-generated from the title while you type — override any time
 
 ### Draft / Publish Workflow
 
-- Every page starts as a **draft** and is invisible to visitors until published.
-- Status is shown as a styled badge in the sidebar (Draft / Published / Archived).
-- **Publish date** field appears automatically once a page is published.
-- The topbar button changes to **Update** once a page is already published.
+- Every page starts as a **draft** — invisible to visitors until published
+- Status badge in the sidebar: Draft / Published / Archived
+- Publish date recorded automatically the moment a page goes live
+- Topbar button switches to **Update** once a page is already published so you always know what you're doing
 
 ### Collections & Nested Pages
 
 <p align="center">
-  <img src="screenshots/06-admin-collections.png" alt="Collections admin" width="80%" />
+  <img src="screenshots/06-admin-collections.png" alt="Magna Docs collections management" width="80%" />
 </p>
 
-- **Collections** group related pages (e.g. "Getting Started", "API Reference"). Each collection has a title, slug, description, icon, color, and sort order.
-- **Nested pages**: any page can be a child of another page (`parent_id`), creating a hierarchy of unlimited depth.
-- The sidebar on the public frontend is auto-built from this tree — no manual menu configuration needed.
+- **Collections** group related pages (Getting Started, API Reference, etc.) — each has a title, slug, description, icon, colour, and sort order
+- **Nested pages** — any page can be a child of another via `parent_id`, giving unlimited depth
+- The public sidebar is built automatically from this tree; no manual menu editing ever
 
 ### Auto Table of Contents
 
-- Every `h2` and `h3` heading in the rendered content is extracted and rendered as a clickable anchor list in the right-hand column.
-- Headings get permanent `#` permalink anchors (via CommonMark's heading-permalink extension), so links to specific sections survive refactoring.
+- Every `h2` and `h3` in the rendered page is extracted and displayed as a sticky anchor list in the right column
+- All headings get permanent `#` permalink anchors via CommonMark's heading-permalink extension
 
 ### SEO — Zero Config
 
-No plugin, no extra config file. Every page ships:
+<p align="center">
+  <img src="screenshots/09-admin-settings.png" alt="Magna Docs settings page" width="80%" />
+</p>
 
-- Unique `<title>` (meta title field, falls back to page title)
-- `<meta name="description">` (meta description field, falls back to truncated excerpt)
+Every published page ships with:
+
+- Unique `<title>` and `<meta name="description">`
 - Canonical URL
-- Open Graph tags (`og:title`, `og:description`, `og:image`, `og:type`, `og:site_name`)
-- Twitter card tags
-- JSON-LD structured data: `TechArticle` and `BreadcrumbList`
+- Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`, `og:type`)
+- Twitter Card metadata
+- JSON-LD structured data: `TechArticle` + `BreadcrumbList`
 - Auto-generated `sitemap.xml` at `/docs/sitemap.xml` with `<lastmod>` per page
+
+No plugins, no config files, no SEO package needed.
 
 ### Server-Rendered, No Build Step
 
-The frontend is pure Blade + inline CSS. There is no JavaScript framework shipped to the browser — only a small amount of vanilla JS for the Table of Contents scroll-spy and feedback widget. This means:
+The public frontend is pure Blade + CSS. Zero JavaScript frameworks are shipped to the browser.
 
-- **No `npm run build`** required after content changes.
-- **Instant previews** — published pages are live on the next browser refresh.
-- **Fast by default** — fully-formed HTML is sent on the first request; no hydration delay.
-- Rendered HTML is cached per page (keyed on `page_id:updated_at`) and automatically invalidated the moment a page is saved.
+- **No `npm run build`** after content changes
+- **Instant live pages** — published content is visible on the next refresh
+- **Automatic HTML caching** per page, keyed on `page_id:updated_at`, invalidated the moment a page is saved
+- Excellent Core Web Vitals — fast FCP, fast LCP, no hydration delay
 
 ### Frontend — Light & Dark Mode
 
 <p align="center">
-  <img src="screenshots/01-frontend-light.png" alt="Frontend light mode" width="49%" />
-  <img src="screenshots/Screenshot 2026-07-12 162556.png" alt="Frontend dark mode" width="49%" />
+  <img src="screenshots/01-frontend-light.png" alt="Magna Docs public documentation light mode" width="49%" />
+  <img src="screenshots/Screenshot 2026-07-12 162556.png" alt="Magna Docs public documentation dark mode" width="49%" />
 </p>
-
-### Featured Image
-
-- Upload an image directly from the editor sidebar (16:9 crop, auto-resized).
-- **Or** pick from the Magna media library — browse all uploaded images in a modal, select with one click.
-- Toggle whether the featured image appears on the frontend per-page.
-
-### Breadcrumb & Prev / Next Navigation
-
-- Full breadcrumb trail rendered at the top of each page, based on `parent_id` hierarchy.
-- Prev / Next navigation cards at the bottom of each page — automatically picks the adjacent page in sidebar order.
-
-### Reading Time & Last Updated
-
-- Reading time is calculated from word count (~200 wpm) and shown in the page footer.
-- "Last updated" date rendered from `updated_at` — always accurate, no manual maintenance.
-
-### Page Feedback Widget
-
-- Every published page has a "Was this page helpful?" widget at the bottom.
-- Sends a `POST` to a lightweight endpoint; no external service required.
-
-### Docs Settings
-
-<p align="center">
-  <img src="screenshots/09-admin-settings.png" alt="Docs Settings page" width="80%" />
-</p>
-
-Configure everything from the admin panel under **Magna Docs → Settings**:
-
-| Setting | Description |
-|---|---|
-| **Custom domain** | Serve docs at `docs.yoursite.com` instead of `/docs` |
-| **Site name** | Override the header/tab title for the docs section |
-| **Logo** | Upload or pick from media library; falls back to CMS logo |
-| **Favicon** | Upload or pick from media library; falls back to CMS favicon |
-| **Editor roles** | Restrict who can create/edit pages to specific admin roles |
-
-### REST API for Headless Consumption
-
-If you want to consume the content from a separate frontend (Next.js, mobile app, etc.), every page and the full tree are available as JSON:
-
-| Endpoint | Description |
-|---|---|
-| `GET /api/v1/docs/tree` | Nested sidebar tree (collections → pages) |
-| `GET /api/v1/docs/pages` | Flat list of all published pages (for search indexing) |
-| `GET /api/v1/docs/pages/{slug}` | Full content + breadcrumb for a single page |
 
 ### Mobile
 
 <p align="center">
-  <img src="screenshots/10-frontend-mobile.png" alt="Mobile view" width="35%" />
+  <img src="screenshots/10-frontend-mobile.png" alt="Magna Docs mobile responsive view" width="35%" />
 </p>
 
-Fully responsive — the sidebar collapses on mobile and the layout adapts to any screen width.
+Fully responsive — the sidebar collapses on mobile, and the layout adapts to any screen width.
+
+### Additional Features
+
+- **Featured image** — upload directly or pick from the Magna media library; toggle display per page
+- **Breadcrumb navigation** — built automatically from the `parent_id` hierarchy
+- **Prev / Next navigation** — cards at the bottom of each page, ordered by sidebar position
+- **Reading time** — calculated from word count (~200 wpm), shown in the page footer
+- **Last updated** — rendered from `updated_at`, always accurate
+- **Page feedback widget** — "Was this page helpful? 👍 👎" stored locally, no third-party service
+
+### REST API
+
+Every published page is available as JSON for headless or mobile consumption:
+
+| Endpoint | Description |
+|---|---|
+| `GET /api/v1/docs/tree` | Nested sidebar tree (collections → pages) |
+| `GET /api/v1/docs/pages` | Flat list of all published pages |
+| `GET /api/v1/docs/pages/{slug}` | Full content + breadcrumb for one page |
+
+Example response for `/api/v1/docs/tree`:
+
+```json
+[
+  {
+    "title": "Getting Started",
+    "slug": "getting-started",
+    "children": [
+      { "title": "Installation", "slug": "installation" },
+      { "title": "Configuration", "slug": "configuration" }
+    ]
+  }
+]
+```
+
+Useful for Next.js frontends, mobile apps, search indexing, and AI assistants.
+
+---
+
+## Magna Docs vs GitBook
+
+GitBook is one of the most popular documentation platforms today. It offers an excellent writing experience — but it is primarily a **cloud-hosted SaaS product**.
+
+| | Magna Docs | GitBook |
+|---|---|---|
+| Hosting | Self-hosted inside your app | Cloud SaaS (paid for teams) |
+| Data ownership | Your database, your server | GitBook's servers |
+| Authentication | Shared with your Laravel app | Separate GitBook account |
+| Monthly cost | Free (open source) | Paid after free tier |
+| Laravel integration | Native | None |
+| Admin panel | Filament 5 inside your app | Separate GitBook UI |
+| REST API | Built-in | Paid plans |
+
+If your application already runs on Laravel, Magna Docs eliminates the need to manage documentation on a separate platform with a separate login, separate billing, and separate deployment.
+
+---
+
+## Magna Docs vs Docusaurus
+
+Docusaurus is an excellent static site generator from Meta, widely used for open-source project documentation.
+
+The fundamental difference: every documentation change in Docusaurus requires a **rebuild and redeploy**.
+
+**Docusaurus workflow:**
+1. Edit Markdown file
+2. Commit to Git
+3. Push to trigger CI
+4. Build (`npm run build`) — takes minutes
+5. Deploy to hosting
+6. Wait for CDN propagation
+
+**Magna Docs workflow:**
+1. Edit page in admin
+2. Click **Publish**
+3. Refresh browser
+
+No Node.js. No build. No deployment. No waiting.
+
+| | Magna Docs | Docusaurus |
+|---|---|---|
+| Requires Node.js | ❌ | ✅ |
+| Build step on every edit | ❌ | ✅ |
+| Deploy after edits | ❌ | ✅ |
+| Live publishing | ✅ | ❌ |
+| Edit inside admin panel | ✅ | ❌ |
+| Database-backed content | ✅ | ❌ |
+| Shared media library | ✅ | ❌ |
+
+---
+
+## Magna Docs vs VitePress
+
+VitePress is lightweight and fast, but it still depends on Node.js and static site generation. Every content update requires running the build and redeploying.
+
+| Task | Magna Docs | VitePress |
+|---|---|---|
+| Requires Node.js | ❌ | ✅ |
+| `npm install` on setup | ❌ | ✅ |
+| Build after editing | ❌ | ✅ |
+| Deploy after editing | ❌ | ✅ |
+| Edit inside admin panel | ✅ | ❌ |
+| Database storage | ✅ | ❌ |
+| Role-based editor access | ✅ | ❌ |
+| Shared app authentication | ✅ | ❌ |
+
+For Laravel teams already using Filament, Magna Docs provides a far more integrated experience — no separate toolchain, no separate user accounts, no separate deployment.
+
+---
+
+## Magna Docs vs MkDocs
+
+MkDocs is popular for Python projects and technical documentation. Like Docusaurus and VitePress, it generates **static HTML at build time**.
+
+Magna Docs focuses on **dynamic documentation management** — editors update content without touching Git repositories or running build commands. The content team and the engineering team share one admin panel, one media library, and one permission system.
+
+---
+
+## Magna Docs vs BookStack
+
+BookStack is a solid self-hosted knowledge management platform. It serves a slightly different audience:
+
+- **BookStack** is optimised for company-wide knowledge sharing, internal wikis, and team information
+- **Magna Docs** is optimised for **public-facing developer documentation** — product docs, API references, installation guides, SaaS documentation
+
+Magna Docs also integrates natively with Magna CMS and Filament, giving you a single admin panel for your entire application.
+
+---
+
+## Architecture
+
+```
+Visitor Request
+       │
+       ▼
+  Laravel Router
+       │
+       ▼
+  DocsPageController
+       │
+       ├── Cache hit? ──→ Return cached HTML immediately
+       │
+       ▼
+  DocPage model (Eloquent)
+       │
+       ▼
+  CommonMark parser
+       │
+       ▼
+  Blade templates
+       │
+       ▼
+  Cache HTML (keyed on page_id:updated_at)
+       │
+       ▼
+  Visitor receives fully rendered HTML
+```
+
+Unlike JavaScript documentation frameworks, there is no client-side rendering, no hydration, and no JavaScript framework shipped to the visitor.
+
+---
+
+## Performance
+
+- **Server-side rendering** — pages are Blade-rendered HTML; no React or Vue runtime in the browser
+- **Automatic per-page caching** — rendered HTML cached immediately after first render
+- **Instant cache invalidation** — only the updated page's cache is cleared when you save; no "clear all" button
+- **Lightweight frontend** — Blade, CSS, and a small amount of vanilla JS only
+- **Fast Core Web Vitals** — better FCP, better LCP, reduced JS execution, improved accessibility
+
+---
+
+## Security
+
+Magna Docs inherits Laravel's built-in security model:
+
+- CSRF protection on all forms
+- Authentication and authorization policies
+- Role-based permissions (shared with the rest of the CMS)
+- Request validation
+- Escaped Blade templates (XSS-safe by default)
+- Secure file uploads via Magna media library
+
+No third-party authentication service required.
 
 ---
 
 ## Installation
 
-> **Coming soon — one-click install:** Magna CMS will gain a built-in plugin marketplace where you can install Magna Docs (and any other plugin) directly from the admin panel with a single click — no terminal, no `composer.json` edits, no file copying. This guide covers the current manual installation path for v1.0.
+> **Coming soon — one-click install:** Magna CMS will ship a built-in plugin marketplace where you can install Magna Docs with a single click from the admin panel — no terminal, no `composer.json` edits, no file copying. The steps below cover the v1.0 manual path.
 
 ### Prerequisites
 
-You need a running [Magna CMS](https://github.com/jish-44/Magna) instance. If you haven't set that up yet, start there first — Magna Docs is a plugin for Magna CMS, not a standalone application.
+You need a running [Magna CMS](https://github.com/jish-44/Magna) instance. Magna Docs is a **plugin** for Magna CMS — it is not a standalone application.
 
 ### 1. Add the plugin to your plugins directory
-
-Clone or download this repository into your Magna CMS plugins folder:
 
 ```bash
 # From the root of your Magna CMS installation
 git clone https://github.com/jish-44/Magna-Docs.git plugins-dev/magna/docs
 ```
 
-Or just copy/unzip the folder manually so the structure looks like:
+Your directory structure should look like:
 
 ```
 your-magna-cms/
-└── plugins-dev/
-    └── magna/
-        └── docs/          ← plugin lives here
-            ├── magna.json
-            ├── composer.json
-            └── src/
+├── app/
+├── plugins-dev/
+│   └── magna/
+│       └── docs/          ← plugin lives here
+│           ├── magna.json
+│           ├── composer.json
+│           └── src/
+└── ...
 ```
 
 ### 2. Register the plugin path in your root `composer.json`
-
-Magna plugins are Composer packages loaded from a local path. Open your Magna CMS `composer.json` and add the repository:
 
 ```json
 {
@@ -236,11 +432,11 @@ Magna plugins are Composer packages loaded from a local path. Open your Magna CM
 composer require magna/docs:@dev
 ```
 
-### 4. Enable the plugin from the admin panel
+### 4. Enable from the admin panel
 
 Go to **Admin → Plugins**, find **Magna Docs**, and click **Enable**.
 
-That's it. Enabling the plugin automatically runs its database migrations and registers all routes, admin resources, and permissions — no `php artisan migrate` needed.
+Enabling the plugin automatically runs database migrations and registers all routes, admin resources, and permissions. No `php artisan migrate` needed.
 
 ---
 
@@ -248,25 +444,25 @@ That's it. Enabling the plugin automatically runs its database migrations and re
 
 ### Creating your first page
 
-1. In the admin sidebar, navigate to **Magna Docs → Create Page**.
-2. Type your title — the slug is auto-generated.
-3. Write content in Markdown using the full-screen editor.
-4. Optionally assign the page to a **Collection** and set a **parent page** for nesting.
-5. Click **Publish page**. It's live at `/docs/{slug}` immediately.
+1. In the admin sidebar, go to **Magna Docs → Create Page**
+2. Type your title — the slug is auto-generated
+3. Write content in Markdown using the full-screen editor
+4. Optionally assign to a **Collection** and set a **parent page** for nesting
+5. Click **Publish page** — it's live at `/docs/{slug}` immediately
 
-### Organizing with Collections
+### Organising with Collections
 
-1. Go to **Magna Docs → Collections** and create a collection (e.g. "Getting Started").
-2. When creating/editing a page, pick the collection in the **Organisation** sidebar section.
-3. Pages are grouped by collection in the public sidebar, ordered by the `order` field.
+1. Go to **Magna Docs → Collections** and create a collection (e.g. "Getting Started")
+2. When editing a page, pick the collection in the **Organisation** sidebar panel
+3. Pages are grouped by collection in the public sidebar, ordered by the `order` field
 
 ### Setting up branding
 
-Go to **Magna Docs → Settings** and fill in your site name, logo, and favicon. These override the CMS defaults for the docs section only.
+Go to **Magna Docs → Settings** to set site name, logo, and favicon. These affect only the docs section and do not change anything else in your CMS.
 
 ### Restricting editor access
 
-In **Magna Docs → Settings**, under **Permissions**, select which admin roles are allowed to create and edit pages. Leave the field empty to allow all admin roles.
+In **Magna Docs → Settings → Permissions**, select which admin roles can create and edit pages. Leave empty to allow all admin roles.
 
 ---
 
@@ -274,41 +470,139 @@ In **Magna Docs → Settings**, under **Permissions**, select which admin roles 
 
 | Route | Description |
 |---|---|
-| `GET /docs` | Landing page — redirects to the first published page |
-| `GET /docs/{slug}` | Single doc page with sidebar, TOC, breadcrumb, SEO meta |
-| `GET /docs/sitemap.xml` | Sitemap for all published pages |
-| `GET /api/v1/docs/tree` | JSON — full nested sidebar tree |
+| `GET /docs` | Landing — redirects to the first published page |
+| `GET /docs/{slug}` | Doc page with sidebar, TOC, breadcrumb, SEO meta |
+| `GET /docs/sitemap.xml` | XML sitemap for all published pages |
+| `GET /api/v1/docs/tree` | JSON — nested sidebar tree |
 | `GET /api/v1/docs/pages` | JSON — flat list of published pages |
 | `GET /api/v1/docs/pages/{slug}` | JSON — single page content + breadcrumb |
 
 ---
 
-## Data Model
+## Database Structure
 
-```
-doc_collections
-  id, title, slug, description, icon, color, order, is_public
+### `doc_collections`
 
-docs_pages
-  id, collection_id, parent_id, title, slug
-  excerpt, featured_image, show_featured_image
-  meta_title, meta_description
-  content (Markdown)
-  status (draft|published|archived)
-  order, is_published, published_at
-```
+| Column | Type | Description |
+|---|---|---|
+| `id` | bigint | Primary key |
+| `title` | string | Collection title |
+| `slug` | string | URL slug |
+| `description` | text | Short description |
+| `icon` | string | Icon identifier |
+| `color` | string | Sidebar accent colour |
+| `order` | integer | Display order |
+| `is_public` | boolean | Visibility |
+
+### `docs_pages`
+
+| Column | Type | Description |
+|---|---|---|
+| `id` | bigint | Primary key |
+| `collection_id` | bigint | Parent collection |
+| `parent_id` | bigint | Parent page (nullable) |
+| `title` | string | Page title |
+| `slug` | string | URL slug |
+| `excerpt` | text | Short summary |
+| `content` | longtext | Markdown content |
+| `featured_image` | string | Hero image path |
+| `show_featured_image` | boolean | Show image on frontend |
+| `meta_title` | string | SEO title override |
+| `meta_description` | text | SEO description override |
+| `status` | enum | `draft` / `published` / `archived` |
+| `order` | integer | Sidebar order |
+| `is_published` | boolean | Published flag |
+| `published_at` | timestamp | Publish date |
 
 ---
 
 ## Requirements
 
-- PHP 8.3+
-- Laravel 13+
-- Magna CMS (Filament 5-based)
-- `league/commonmark` ^2.4 (installed automatically)
+| Requirement | Version |
+|---|---|
+| PHP | 8.3 or higher |
+| Laravel | 13.x |
+| Magna CMS | Latest |
+| Filament | 5.x |
+| Composer | Latest |
+
+---
+
+## Frequently Asked Questions
+
+**Does Magna Docs require Node.js?**
+No. Everything runs inside Laravel. There is no npm, no Vite, and no build step.
+
+**Does it generate static HTML?**
+No. Pages are rendered dynamically by Blade on every request (or served from cache). Publishing is instant — no rebuild, no deployment.
+
+**Does it support Markdown?**
+Yes. Markdown is parsed by [league/commonmark](https://commonmark.thephpleague.com/) — a full CommonMark implementation with extensions.
+
+**Can I use it for API documentation?**
+Absolutely. Magna Docs is ideal for REST API references, SDK docs, and developer portals.
+
+**Can I use it as a knowledge base or internal wiki?**
+Yes. Collections and nested pages make it easy to structure any type of documentation project.
+
+**Is it SEO friendly?**
+Yes. Every page automatically gets meta tags, Open Graph, Twitter Cards, JSON-LD structured data, canonical URLs, and a sitemap.
+
+**Can I serve docs on my own domain (e.g. docs.myapp.com)?**
+Yes. Configure a custom domain in **Magna Docs → Settings**.
+
+**Can I restrict who edits documentation?**
+Yes. Assign editor access to specific Magna CMS admin roles in the settings.
+
+**Do I need to run `php artisan migrate` manually?**
+No. Migrations run automatically when you enable the plugin from the admin panel.
+
+**Is Magna Docs open source?**
+Yes. Released under the MIT License.
+
+---
+
+## Roadmap
+
+Planned for future releases:
+
+- [ ] Global full-text search (Algolia DocSearch / built-in)
+- [ ] Versioned documentation (e.g. v1, v2)
+- [ ] Multi-language / localization support
+- [ ] Import from GitHub Markdown files
+- [ ] Export to PDF
+- [ ] Export to ZIP / static HTML
+- [ ] Page revision history
+- [ ] Scheduled publishing
+- [ ] Comments on pages
+- [ ] Page analytics
+- [ ] Custom themes
+- [ ] Documentation templates
+- [ ] AI writing assistant integration
+- [ ] One-click install via Magna CMS plugin marketplace
+
+---
+
+## Contributing
+
+Contributions are welcome. You can help by:
+
+- Reporting bugs with clear reproduction steps
+- Suggesting features via GitHub Issues
+- Submitting pull requests (please follow the existing code style)
+- Improving documentation
+
+Please include your PHP version, Laravel version, Magna CMS version, and plugin version in any bug report.
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Magna Docs is open-source software released under the **MIT License** — see [LICENSE](LICENSE) for full details.
+
+---
+
+<p align="center">
+  <strong>Made with ❤️ for the Laravel & Magna CMS community.</strong><br>
+  If Magna Docs saves you from maintaining a separate documentation platform, consider giving the repo a ⭐
+</p>
