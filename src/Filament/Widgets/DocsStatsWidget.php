@@ -20,10 +20,22 @@ class DocsStatsWidget extends Widget
 
     protected int|string|array $columnSpan = 'full';
 
-    /** Only visible to users who can access the docs pages resource. */
+    /** Only visible when the docs plugin is active and the user has access. */
     public static function canView(): bool
     {
-        return Schema::hasTable('docs_pages') && DocPageResource::canViewAny();
+        if (! Schema::hasTable('docs_pages')) {
+            return false;
+        }
+
+        // Guard: if the plugin is disabled its view namespace is never registered,
+        // which would throw when Filament tries to render the widget.
+        try {
+            view('docs::filament.widgets.docs-stats');
+        } catch (\InvalidArgumentException) {
+            return false;
+        }
+
+        return DocPageResource::canViewAny();
     }
 
     /** @return array<string, mixed> */

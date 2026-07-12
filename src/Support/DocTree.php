@@ -71,10 +71,10 @@ class DocTree
     {
         $slugs = [];
         foreach ($nodes as $node) {
-            if (!empty($node['slug'])) {
+            if (! empty($node['slug'])) {
                 $slugs[] = (string) $node['slug'];
             }
-            if (!empty($node['children']) && is_array($node['children'])) {
+            if (! empty($node['children']) && is_array($node['children'])) {
                 array_push($slugs, ...self::slugsFromNodes($node['children']));
             }
         }

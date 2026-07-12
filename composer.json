@@ -1,14 +1,44 @@
 {
     "name": "magna/docs",
-    "description": "Documentation page management plugin for Magna CMS.",
+    "description": "Documentation page management plugin for Magna CMS — markdown editor, hierarchical pages, full-text search, and a built-in delivery frontend.",
     "type": "magna-plugin",
+    "keywords": [
+        "magna", "magna-cms", "docs", "documentation",
+        "cms", "laravel", "plugin", "markdown"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jishnu Raj",
+            "email": "jishnurajm@gmail.com",
+            "homepage": "https://jrstudios.dev",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/jish-44/Magna-Docs",
+    "support": {
+        "issues": "https://github.com/jish-44/Magna-Docs/issues",
+        "source": "https://github.com/jish-44/Magna-Docs",
+        "docs": "https://github.com/jish-44/Magna-Docs#readme"
+    },
     "require": {
         "php": "^8.3",
+        "magna-cms/plugin-sdk": "^1.0",
         "league/commonmark": "^2.4"
     },
     "autoload": {
         "psr-4": {
             "Magna\\Docs\\": "src/"
         }
-    }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
