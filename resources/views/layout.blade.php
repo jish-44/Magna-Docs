@@ -200,7 +200,7 @@
             @else
                 <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand to-fuchsia-600 text-white font-extrabold text-xl shadow-md shadow-brand/20">{{ strtoupper(substr($docsSiteName, 0, 1)) }}</span>
             @endif
-            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-zinc-300 bg-clip-text text-transparent hidden sm:inline-block">{{ $docsSiteName }}</span>
+            <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-zinc-300 bg-clip-text text-transparent">{{ $docsSiteName }}</span>
         </a>
 
         {{-- Desktop search --}}

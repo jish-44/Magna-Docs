@@ -82,14 +82,21 @@ class DocsPageController
         $toc = TocGenerator::generate($html);
         $breadcrumb = $page->breadcrumb();
 
-        $allPages = DocPage::query()
+        // Build prev/next from the sidebar tree order so the sequence matches
+        // what the reader sees in the navigation panel.
+        $allPagesMap = DocPage::query()
             ->where('status', 'published')
-            ->orderBy('order')
-            ->get(['id', 'title', 'slug']);
+            ->get(['id', 'title', 'slug'])
+            ->keyBy('slug');
 
-        $idx = $allPages->search(fn ($p) => $p->slug === $page->slug);
-        $prev = ($idx > 0) ? $allPages[$idx - 1] : null;
-        $next = ($idx !== false && $idx < $allPages->count() - 1) ? $allPages[$idx + 1] : null;
+        $orderedPages = collect(DocTree::flatPageSlugs())
+            ->map(fn (string $slug) => $allPagesMap->get($slug))
+            ->filter()
+            ->values();
+
+        $idx = $orderedPages->search(fn ($p) => $p->slug === $page->slug);
+        $prev = ($idx > 0) ? $orderedPages[$idx - 1] : null;
+        $next = ($idx !== false && $idx < $orderedPages->count() - 1) ? $orderedPages[$idx + 1] : null;
 
         $metaTitle = $page->meta_title ?: $displayTitle.' — Documentation';
         $metaDescription = $page->meta_description

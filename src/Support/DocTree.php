@@ -56,6 +56,33 @@ class DocTree
     }
 
     /**
+     * Flat list of slugs in the same order as the sidebar tree.
+     * Used by the controller to compute correct Prev / Next links.
+     *
+     * @return list<string>
+     */
+    public static function flatPageSlugs(): array
+    {
+        return self::slugsFromNodes(self::build());
+    }
+
+    /** @param array<int, array<string, mixed>> $nodes */
+    private static function slugsFromNodes(array $nodes): array
+    {
+        $slugs = [];
+        foreach ($nodes as $node) {
+            if (!empty($node['slug'])) {
+                $slugs[] = (string) $node['slug'];
+            }
+            if (!empty($node['children']) && is_array($node['children'])) {
+                array_push($slugs, ...self::slugsFromNodes($node['children']));
+            }
+        }
+
+        return $slugs;
+    }
+
+    /**
      * The slug of the first page in sidebar order — used as the docs "home"
      * page (VitePress-style), where the first article is the landing page.
      */
