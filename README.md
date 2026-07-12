@@ -1,16 +1,48 @@
-# Magna Docs
+<p align="center">
+  <img src="screenshots/magna-logo.svg" alt="Magna CMS" width="80">
+</p>
 
-**A beautiful, full-featured documentation plugin for [Magna CMS](https://github.com/your-org/magna-cms).**
+<h1 align="center">Magna Docs</h1>
 
-Write, organize, and publish developer documentation — or any long-form reference content — right inside your Laravel/Filament admin panel. No separate toolchain, no rebuild step, no Node.js required.
+<p align="center">
+  <strong>A beautiful, full-featured documentation plugin for <a href="https://github.com/jish-44/magna-cms">Magna CMS</a>.</strong><br>
+  Write, organize, and publish developer documentation right inside your Laravel admin panel.<br>
+  No separate toolchain. No rebuild step. No Node.js required.
+</p>
 
-> **License:** MIT  
-> **Requires:** PHP 8.3+, Laravel 11+, Magna CMS, Filament 3
+<p align="center">
+  <img src="https://img.shields.io/badge/version-v1.0-6366f1" alt="Version v1.0">
+  <img src="https://img.shields.io/badge/PHP-8.3%2B-777BB4?logo=php&logoColor=white" alt="PHP 8.3+">
+  <img src="https://img.shields.io/badge/Laravel-13-FF2D20?logo=laravel&logoColor=white" alt="Laravel 13">
+  <img src="https://img.shields.io/badge/Filament-5-f59e0b?logo=laravel&logoColor=white" alt="Filament 5">
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT">
+</p>
 
 ---
 
-<!-- SCREENSHOT: Hero — full-screen editor open on a doc page, dark mode -->
-> 📸 *Screenshot: Full-screen editor in dark mode*
+<!-- Screenshots — horizontal gallery (scroll to see all) -->
+<table>
+  <tr>
+    <td><img src="screenshots/01-frontend-light.png" alt="Frontend — light mode" /></td>
+    <td><img src="screenshots/02-frontend-dark.png" alt="Frontend — dark mode" /></td>
+    <td><img src="screenshots/07-admin-edit-page.png" alt="Full-screen Markdown editor" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Frontend — light mode</sub></td>
+    <td align="center"><sub>Frontend — dark mode</sub></td>
+    <td align="center"><sub>Full-screen Markdown editor</sub></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/05-admin-pages-list.png" alt="Admin — Doc Pages list" /></td>
+    <td><img src="screenshots/06-admin-collections.png" alt="Admin — Collections" /></td>
+    <td><img src="screenshots/10-frontend-mobile.png" alt="Mobile view" /></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Admin — Doc Pages list</sub></td>
+    <td align="center"><sub>Admin — Collections</sub></td>
+    <td align="center"><sub>Mobile view</sub></td>
+  </tr>
+</table>
 
 ---
 
@@ -30,10 +62,9 @@ Write, organize, and publish developer documentation — or any long-form refere
 | Self-hosted, open-source | ✅ | ✅ | ❌ |
 | Media library integration | ✅ | ❌ | ❌ |
 | REST API for headless consumption | ✅ | ❌ | ✅ (paid) |
-| Custom domain support | ✅ | ✅ | ✅ (paid) |
 | Zero build step / no Node.js | ✅ | ❌ Requires Node | ❌ |
 
-The core difference: static-site generators compile at build time, so every content edit requires a rebuild and redeploy. Magna Docs renders directly from the database on each request — so saving a draft in the admin is live on the next page load. Since the app is already a running Laravel process, there is nothing extra to operate.
+The core difference: static-site generators compile at build time, so every content edit requires a rebuild and redeploy. Magna Docs renders directly from the database on each request — so saving a draft in the admin is live on the next page load.
 
 ---
 
@@ -41,39 +72,34 @@ The core difference: static-site generators compile at build time, so every cont
 
 ### Full-screen Markdown Editor
 
-<!-- SCREENSHOT: Editor topbar with Save Draft / Publish buttons, dark/light toggle -->
-> 📸 *Screenshot: Editor topbar*
+<p align="center">
+  <img src="screenshots/07-admin-edit-page.png" alt="Full-screen editor" width="80%" />
+</p>
 
 - Distraction-free overlay editor covers the entire screen — no Filament chrome visible while writing.
 - **Markdown** with rich toolbar: bold, italic, strikethrough, links, headings, bullet/ordered lists, blockquotes, code blocks, tables, and file attachments.
 - **Dark / light mode toggle** — persists across saves and page reloads.
-- **Auto-save-aware workflow**: Save Draft silently saves without redirecting; Publish sets the status to published and shows a confirmation toast.
+- **Auto-save-aware workflow**: Save Draft silently saves without redirecting; Update sets the status to published and shows a confirmation toast.
 - **Auto-slug generation**: slug is derived from the title while typing; you can override it manually.
 
 ### Draft / Publish Workflow
 
-<!-- SCREENSHOT: Sidebar Summary section showing "Draft" status pill and "Publish page" button -->
-> 📸 *Screenshot: Sidebar — draft status*
-
 - Every page starts as a **draft** and is invisible to visitors until published.
 - Status is shown as a styled badge in the sidebar (Draft / Published / Archived).
-- **Publish date** field appears automatically once a page is published, letting you record when it went live.
-- The topbar button changes to **Update** once a page is already published, so you always know what action you're taking.
+- **Publish date** field appears automatically once a page is published.
+- The topbar button changes to **Update** once a page is already published.
 
 ### Collections & Nested Pages
 
-<!-- SCREENSHOT: Sidebar showing collection groups with nested pages -->
-> 📸 *Screenshot: Frontend sidebar with collection groups*
+<p align="center">
+  <img src="screenshots/06-admin-collections.png" alt="Collections admin" width="80%" />
+</p>
 
 - **Collections** group related pages (e.g. "Getting Started", "API Reference"). Each collection has a title, slug, description, icon, color, and sort order.
 - **Nested pages**: any page can be a child of another page (`parent_id`), creating a hierarchy of unlimited depth.
 - The sidebar on the public frontend is auto-built from this tree — no manual menu configuration needed.
-- **Drag-order**: set the `order` field to control where a page appears within its group.
 
 ### Auto Table of Contents
-
-<!-- SCREENSHOT: Right sidebar showing TOC with h2/h3 headings linked -->
-> 📸 *Screenshot: In-page Table of Contents*
 
 - Every `h2` and `h3` heading in the rendered content is extracted and rendered as a clickable anchor list in the right-hand column.
 - Headings get permanent `#` permalink anchors (via CommonMark's heading-permalink extension), so links to specific sections survive refactoring.
@@ -99,19 +125,20 @@ The frontend is pure Blade + inline CSS. There is no JavaScript framework shippe
 - **Fast by default** — fully-formed HTML is sent on the first request; no hydration delay.
 - Rendered HTML is cached per page (keyed on `page_id:updated_at`) and automatically invalidated the moment a page is saved.
 
-### Featured Image
+### Frontend — Light & Dark Mode
 
-<!-- SCREENSHOT: Featured image section in sidebar — showing preview of selected image -->
-> 📸 *Screenshot: Featured image picker*
+<p align="center">
+  <img src="screenshots/01-frontend-light.png" alt="Frontend light mode" width="49%" />
+  <img src="screenshots/02-frontend-dark.png" alt="Frontend dark mode" width="49%" />
+</p>
+
+### Featured Image
 
 - Upload an image directly from the editor sidebar (16:9 crop, auto-resized).
 - **Or** pick from the Magna media library — browse all uploaded images in a modal, select with one click.
 - Toggle whether the featured image appears on the frontend per-page.
 
 ### Breadcrumb & Prev / Next Navigation
-
-<!-- SCREENSHOT: Page footer showing ← Previous / Next → navigation cards -->
-> 📸 *Screenshot: Prev/Next navigation*
 
 - Full breadcrumb trail rendered at the top of each page, based on `parent_id` hierarchy.
 - Prev / Next navigation cards at the bottom of each page — automatically picks the adjacent page in sidebar order.
@@ -123,16 +150,14 @@ The frontend is pure Blade + inline CSS. There is no JavaScript framework shippe
 
 ### Page Feedback Widget
 
-<!-- SCREENSHOT: "Was this page helpful? 👍 👎" section at the bottom of a page -->
-> 📸 *Screenshot: Feedback widget*
-
 - Every published page has a "Was this page helpful?" widget at the bottom.
 - Sends a `POST` to a lightweight endpoint; no external service required.
 
 ### Docs Settings
 
-<!-- SCREENSHOT: Docs Settings admin page showing branding fields -->
-> 📸 *Screenshot: Docs Settings page*
+<p align="center">
+  <img src="screenshots/09-admin-settings.png" alt="Docs Settings page" width="80%" />
+</p>
 
 Configure everything from the admin panel under **Magna Docs → Settings**:
 
@@ -154,24 +179,13 @@ If you want to consume the content from a separate frontend (Next.js, mobile app
 | `GET /api/v1/docs/pages` | Flat list of all published pages (for search indexing) |
 | `GET /api/v1/docs/pages/{slug}` | Full content + breadcrumb for a single page |
 
----
+### Mobile
 
-## Screenshots
+<p align="center">
+  <img src="screenshots/10-frontend-mobile.png" alt="Mobile view" width="35%" />
+</p>
 
-<!-- SCREENSHOT: Admin — Doc Pages list view -->
-> 📸 *Screenshot: Doc Pages list in Filament*
-
-<!-- SCREENSHOT: Admin — Collections list view -->
-> 📸 *Screenshot: Doc Collections list*
-
-<!-- SCREENSHOT: Frontend — full page view, light mode, sidebar open -->
-> 📸 *Screenshot: Frontend — light mode*
-
-<!-- SCREENSHOT: Frontend — full page view, dark mode -->
-> 📸 *Screenshot: Frontend — dark mode*
-
-<!-- SCREENSHOT: Mobile view of frontend sidebar collapsed -->
-> 📸 *Screenshot: Mobile view*
+Fully responsive — the sidebar collapses on mobile and the layout adapts to any screen width.
 
 ---
 
@@ -270,8 +284,8 @@ docs_pages
 ## Requirements
 
 - PHP 8.3+
-- Laravel 11+
-- Magna CMS (Filament 3-based)
+- Laravel 13+
+- Magna CMS (Filament 5-based)
 - `league/commonmark` ^2.4 (installed automatically)
 
 ---
