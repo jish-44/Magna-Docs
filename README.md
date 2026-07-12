@@ -191,13 +191,36 @@ Fully responsive — the sidebar collapses on mobile and the layout adapts to an
 
 ## Installation
 
-### 1. Place the plugin
+> **Coming soon — one-click install:** Magna CMS will gain a built-in plugin marketplace where you can install Magna Docs (and any other plugin) directly from the admin panel with a single click — no terminal, no `composer.json` edits, no file copying. This guide covers the current manual installation path for v1.0.
+
+### Prerequisites
+
+You need a running [Magna CMS](https://github.com/jish-44/Magna) instance. If you haven't set that up yet, start there first — Magna Docs is a plugin for Magna CMS, not a standalone application.
+
+### 1. Add the plugin to your plugins directory
+
+Clone or download this repository into your Magna CMS plugins folder:
+
+```bash
+# From the root of your Magna CMS installation
+git clone https://github.com/jish-44/Magna-Docs.git plugins-dev/magna/docs
+```
+
+Or just copy/unzip the folder manually so the structure looks like:
 
 ```
-plugins-dev/magna/docs/
+your-magna-cms/
+└── plugins-dev/
+    └── magna/
+        └── docs/          ← plugin lives here
+            ├── magna.json
+            ├── composer.json
+            └── src/
 ```
 
-### 2. Register the path source in your root `composer.json`
+### 2. Register the plugin path in your root `composer.json`
+
+Magna plugins are Composer packages loaded from a local path. Open your Magna CMS `composer.json` and add the repository:
 
 ```json
 {
@@ -213,15 +236,11 @@ plugins-dev/magna/docs/
 composer require magna/docs:@dev
 ```
 
-### 4. Run migrations
+### 4. Enable the plugin from the admin panel
 
-```bash
-php artisan migrate
-```
+Go to **Admin → Plugins**, find **Magna Docs**, and click **Enable**.
 
-### 5. Enable the plugin
-
-Go to **Admin → Plugins** and enable **Magna Docs**.
+That's it. Enabling the plugin automatically runs its database migrations and registers all routes, admin resources, and permissions — no `php artisan migrate` needed.
 
 ---
 
