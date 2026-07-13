@@ -1,5 +1,5 @@
 {
-    "name": "magna/docs",
+    "name": "magna-cms/docs",
     "description": "Documentation page management plugin for Magna CMS — markdown editor, hierarchical pages, full-text search, and a built-in delivery frontend.",
     "type": "magna-plugin",
     "keywords": [
